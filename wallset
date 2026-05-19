@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+
+usage() {
+    echo "Usage: $0 <wallpaper_filename>"
+    echo "Example: $0 nord.png"
+    echo "Files are taken from: $WALLPAPER_DIR"
+    exit 1
+}
+
+[ $# -ne 1 ] && usage
+
+THEME_NAME="$1"
+if [[ ! "$THEME_NAME" =~ \.(png|jpg|jpeg|gif|webp)$ ]]; then
+    THEME_NAME="${THEME_NAME}.png"
+fi
+
+WALLPAPER_PATH="$WALLPAPER_DIR/$THEME_NAME"
+if [ ! -f "$WALLPAPER_PATH" ]; then
+    echo "ERROR: Wallpaper not found: $WALLPAPER_PATH"
+    exit 1
+fi
+
+
+# awww
+if command -v awww &>/dev/null && pgrep -x "awww-daemon" >/dev/null; then
+    awww img "$WALLPAPER_PATH" --transition-type any
+    echo "✓ Wallpaper set with awww: $THEME_NAME"
+
+# hyprpaper
+elif command -v hyprpaper &>/dev/null && pgrep -x "hyprpaper" >/dev/null; then
+    hyprctl hyprpaper preload "$WALLPAPER_PATH"
+    hyprctl hyprpaper wallpaper ",$WALLPAPER_PATH"
+    echo "✓ Wallpaper set with hyprpaper: $THEME_NAME"
+
+# swaybg
+elif command -v swaybg &>/dev/null; then
+    pkill swaybg 2>/dev/null
+    swaybg -i "$WALLPAPER_PATH" -m fill &
+    echo "✓ Wallpaper set with swaybg: $THEME_NAME"
+
+# wbg
+elif command -v wbg &>/dev/null; then
+    pkill wbg 2>/dev/null
+    wbg "$WALLPAPER_PATH" &
+    echo "✓ Wallpaper set with wbg: $THEME_NAME"
+
+else
+    echo "ERROR: No wallpaper tool found (swww / hyprpaper / swaybg / wbg)."
+    exit 1
+fi

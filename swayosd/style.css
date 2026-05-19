@@ -1,0 +1,29 @@
+@import "../waybar/colors/active.css";
+
+window#osd {
+  background-color: alpha(@bg0, 0.85);
+  border-radius: 12px;
+  border: 1px solid @bg3;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+window#osd trough {
+  background-color: @bg3;
+  border-radius: 6px;
+}
+
+window#osd progress {
+  background-color: @blue;
+  border-radius: 6px;
+}
+
+window#osd image {
+  color: @fg;
+  font-size: 24px;
+}
+
+window#osd label {
+  color: @fg;
+  font-size: 16px;
+  font-family: "JetBrainsMono Nerd Font Propo", "Noto Sans", sans-serif;
+}

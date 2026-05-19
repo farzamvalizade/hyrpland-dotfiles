@@ -1,0 +1,104 @@
+@import "colors.css";
+
+/* Global menu & popup background with transparency */
+.menu,
+.context-menu,
+.popup,
+.popover,
+.popup-menu,
+.popup-menu-content,
+window.popup,
+window.popup-menu,
+#popup-menu,
+.menu-background {
+  background-color: rgba(40, 44, 52, 0.92); /* #282c34 with 92% opacity */
+  background-image: none;
+  border: 1px solid @blue;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 4px 0;
+}
+
+/* Menu items (including nm-applet entries) */
+.menuitem,
+.menu-item,
+.popup-menu-item,
+.context-menu-item,
+.list-row {
+  background-color: transparent;
+  color: @fg;
+  padding: 6px 24px 6px 16px;
+  border-radius: 4px;
+  margin: 2px 4px;
+}
+
+/* Hover effect for menu items */
+.menuitem:hover,
+.menu-item:hover,
+.popup-menu-item:hover,
+.context-menu-item:hover,
+.list-row:hover {
+  background-color: @blue;
+  color: @bg0;
+}
+
+/* Check/radio indicators inside menus (e.g., Wi-Fi encryption type) */
+.check,
+.radio {
+  color: @green;
+}
+
+/* Separators */
+.separator,
+.menu-separator,
+hr {
+  background-color: @gray0;
+  margin: 4px 0;
+  min-height: 1px;
+}
+
+/* Tooltips - transparent background, border, OneDark colors */
+tooltip,
+.tooltip {
+  background-color: rgba(33, 37, 43, 0.95); /* #21252b with transparency */
+  border: 1px solid @aqua;
+  border-radius: 6px;
+  color: @fg;
+  padding: 4px 8px;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+tooltip label,
+.tooltip label {
+  color: @fg;
+}
+
+/* Scrollbars inside popups (if any) */
+scrollbar {
+  background-color: @bg2;
+  border-radius: 6px;
+}
+
+scrollbar slider {
+  background-color: @blue;
+  border-radius: 6px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+scrollbar slider:hover {
+  background-color: @purple;
+}
+
+/* Submenu arrows */
+.arrow,
+.menu-arrow {
+  color: @gray1;
+}
+
+/* Force transparency for all popup windows (optional: more aggressive) */
+* {
+  transition: all 0.1s ease;
+}
+@import 'colors.css';

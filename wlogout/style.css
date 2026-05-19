@@ -1,0 +1,100 @@
+@import "../waybar/colors/active.css";
+
+* {
+  background-image: none;
+  font-size: 14px;
+}
+
+window {
+  background-color: transparent;
+}
+
+button {
+  color: @fg;
+  background-color: @bg0;
+  outline-style: none;
+  border: none;
+  border-width: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10%;
+  border-radius: 12px;
+  box-shadow: none;
+  text-shadow: none;
+  transition: all 0.25s ease-out;
+  animation: pulse 4s infinite ease-in-out;
+}
+
+button:focus {
+  background-color: @bg3;
+  box-shadow: 0 0 0 2px @blue;
+}
+
+button:hover {
+  background-color: @bg4;
+  box-shadow: 0 0 0 2px @blue;
+  border-radius: 18px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 0 1px @blue;
+  transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+button:hover#lock {
+  border-radius: 18px 18px 6px 18px;
+  margin: 2px 0px 0px 2px;
+}
+
+button:hover#logout {
+  border-radius: 18px 6px 18px 18px;
+  margin: 0px 0px 2px 2px;
+}
+
+button:hover#shutdown {
+  border-radius: 18px 18px 18px 6px;
+  margin: 2px 2px 0px 0px;
+}
+
+button:hover#reboot {
+  border-radius: 6px 18px 18px 18px;
+  margin: 0px 2px 2px 0px;
+}
+
+#lock {
+  background-image: image(url("./icons/lock_white.png"));
+  border-radius: 18px 6px 6px 6px;
+  margin: 12px 6px 6px 12px;
+}
+
+#logout {
+  background-image: image(url("./icons/logout_white.png"));
+  border-radius: 6px 6px 6px 18px;
+  margin: 6px 6px 12px 12px;
+}
+
+#shutdown {
+  background-image: image(url("./icons/shutdown_white.png"));
+  border-radius: 6px 18px 6px 6px;
+  margin: 12px 12px 6px 6px;
+}
+
+#reboot {
+  background-image: image(url("./icons/reboot_white.png"));
+  border-radius: 6px 6px 18px 6px;
+  margin: 6px 12px 12px 6px;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: @bg0;
+    background-size: 10%;
+  }
+  50% {
+    background-color: @bg2;
+    background-size: 12%;
+  }
+  100% {
+    background-color: @bg0;
+    background-size: 10%;
+  }
+}
