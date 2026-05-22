@@ -18,9 +18,10 @@ window#waybar {
 }
 
 tooltip {
-  background: @bg0;
-  border: 1px solid @bg3;
+  background: alpha(@bg0, 0.85);
+  border: 1px solid alpha(@bg3, 0.15);
   border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 tooltip label {
@@ -29,29 +30,34 @@ tooltip label {
 }
 
 #workspaces {
-  background-color: @bg0;
-  padding: 5px 3px;
+  background-color: alpha(@bg0, 0.4);
+  padding: 6px 8px;
   margin: 0 0 0 12px;
-  border-radius: 18px;
-  border: 1px solid @bg1;
+  border-radius: 40px;
+  border: 1px solid alpha(@bg1, 0.5);
   color: @fg;
 }
 
 #workspaces button {
-  padding: 0px 6px;
-  margin: 0px 3px;
-  border-radius: 45px;
+  padding: 0px 8px;
+  margin: 0px 4px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
   color: transparent;
-  background-color: @bg1;
-  transition: all 0.3s ease-in-out;
+  min-width: 14px;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 #workspaces button.active {
-  background-color: @blue;
+  background: linear-gradient(135deg, @blue, @purple);
   color: @bg0;
-  min-width: 50px;
-  transition: all 0.3s ease-in-out;
+  min-width: 55px;
+  font-weight: bold;
   font-size: 13px;
+  box-shadow:
+    0 0 8px @blue,
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
@@ -63,12 +69,11 @@ tooltip label {
 }
 
 #workspaces button.urgent {
-  background-color: @red;
+  background: @red;
   color: @bg0;
-  border-radius: 16px;
   min-width: 50px;
   background-size: 400% 400%;
-  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px @red;
 }
 
 #battery,
@@ -78,19 +83,34 @@ tooltip label {
 #custom-notification,
 #custom-arch,
 #custom-window_upper {
-  background-color: @bg0;
-  padding: 0 15px 0 15px;
-  margin: 0 0 0 12px;
-  border-radius: 50px;
-  border: 1px solid @bg1;
+  background: alpha(@bg0, 0.45);
+  padding: 0 16px;
+  margin: 0 0 0 10px;
+  border-radius: 32px;
+  border: 1px solid alpha(@bg1, 0.3);
+  transition: all 0.2s;
+}
+
+#battery:hover,
+#pulseaudio:hover,
+#tray:hover,
+#clock:hover,
+#custom-notification:hover,
+#custom-arch:hover {
+  background: rgba(0, 0, 0, 0.65);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 #custom-arch {
   color: @aqua;
+  text-shadow: 0 0 3px @aqua;
 }
 
 #clock {
   color: @blue;
+  font-weight: bold;
+  letter-spacing: 1px;
+  min-width: 60px;
 }
 
 #custom-window_upper {
@@ -113,4 +133,5 @@ tooltip label {
 
 #battery {
   color: @green;
+  margin-right: 16px;
 }

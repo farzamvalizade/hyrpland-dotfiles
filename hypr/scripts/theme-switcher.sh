@@ -54,6 +54,8 @@ case "$SELECTED_THEME" in
     "one-dark") ROFI_THEME_FILE="onedark.rasi" ;;
     "rose-pine"|"rose pine") ROFI_THEME_FILE="rosepine.rasi" ;;
     "nord") ROFI_THEME_FILE="nord.rasi" ;;
+    "tokyo-night"|"tokyo-night") ROFI_THEME_FILE="tokyo-night.rasi" ;;
+    "capputine-lavendar") ROFI_THEME_FILE="capputine-lavendar.rasi" ;;
     *) ROFI_THEME_FILE="" ;;
 esac
 if [ -n "$ROFI_THEME_FILE" ]; then

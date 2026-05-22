@@ -5,7 +5,9 @@ Supports both `.conf` (default) and `.lua` configuration styles – you choose.
 
 ![One Dark theme screenshot](wm-one-dark.png)
 ![Rose Pine theme screenshot](wm-rose-pine.png)
-![One Dark theme screenshot](wm-nord.png)
+![Nord theme screenshot](wm-nord.png)
+![Tokyo Night theme screenshot](wm-tokyo-night.png)
+![Capputine Lavendar theme screenshot](wm-capputine-lavendar.png)
 
 <video src="demo.mp4" controls width="100%"></video>
 
